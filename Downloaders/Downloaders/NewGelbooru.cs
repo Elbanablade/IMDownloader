@@ -32,8 +32,23 @@ namespace Downloaders
         private string buildURL()
         {
             string seedURL = "http://www.gelbooru.com/index.php?page=post&tags=";
-            
-            return "";
+            string[] temp = tbSearchTags.Text.Split(',');
+            for (int i = 0; i < temp.Count(); i++)
+                {temp[i] = temp[i].Trim();}
+            seedURL += String.Join("+", temp);
+            if(tbUsername.Text.Length > 0)
+            {
+                seedURL += "%user:" + tbUsername.Text;
+            }
+            if(cbRating.SelectedItem.ToString() != "")
+            {
+                seedURL += "%rating:" + cbRating.SelectedItem.ToString();
+            }
+            if(nudId.Value != 0)
+            {
+                seedURL += "%id:" + cbGLEId.SelectedValue.ToString() + nudId.Value.ToString();
+            }
+            return seedURL;
         }
     }
 }
