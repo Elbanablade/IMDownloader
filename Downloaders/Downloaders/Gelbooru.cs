@@ -48,7 +48,6 @@ namespace Downloaders
                         if (aTag.InnerHtml.Contains("img"))
                         {
                             imagePageURLs.Add("http://gelbooru.com/" + aTag.Attributes["href"].Value.ToString().Replace("amp;", ""));
-                            singlePageUrls.Add("http://gelbooru.com/" + aTag.Attributes["href"].Value.ToString().Replace("amp;", ""));
                         }
                     }
                 }
@@ -73,7 +72,6 @@ namespace Downloaders
                         if (aTag.Attributes["src"].Value.Contains("image") || aTag.Attributes["src"].Value.Contains("thumbnail"))
                         {
                             imagePageURLs.Add(convertThumbToImage(aTag.Attributes["src"].Value.ToString().Replace("amp;", "")));
-                            imageUrls.Add(convertThumbToImage(aTag.Attributes["src"].Value.ToString().Replace("amp;", "")));
                         }
                     }
                 }
