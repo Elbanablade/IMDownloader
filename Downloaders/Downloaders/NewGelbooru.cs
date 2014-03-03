@@ -39,7 +39,11 @@ namespace Downloaders
                 {temp[i] = temp[i].Trim();}
             seedURL += String.Join("+", temp).Replace(" ", "_");
             
-            
+            //add username search
+            if(tbUsername.Text != "")
+            {
+                seedURL += "%user:" + tbUsername.Text;
+            }
             
             
             
