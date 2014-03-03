@@ -165,9 +165,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(12, 40);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 13);
+            this.label12.Size = new System.Drawing.Size(92, 13);
             this.label12.TabIndex = 47;
-            this.label12.Text = "Number of Pages";
+            this.label12.Text = "Number of images";
             // 
             // lblSort
             // 

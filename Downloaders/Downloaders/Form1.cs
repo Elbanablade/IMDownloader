@@ -25,7 +25,29 @@ namespace Downloaders
 
         private void refresh(object source, ElapsedEventArgs e)
         {
-            string tempUrl = "";
+            if(Gelbooru.seedUrls.Count > 0)
+            {
+                string tempUrl = Gelbooru.seedUrls.First();
+                string tempLocation = Gelbooru.downloadDirectory;
+
+                Gelbooru.seedUrls.RemoveAt(0);
+
+                List<string> pageURLs = Gelbooru.getIndividualPageUrls(tempUrl);
+                List<string> imageUrls = new List<string>();
+                foreach(string page in pageURLs)
+                {
+                    List<string> tempImageurls = Gelbooru.getImageUrlsFromPage(page);
+                    foreach(string s in tempImageurls )
+                    {
+                        imageUrls.Add(s);
+                    }
+                }
+                foreach(string s in imageUrls)
+                {
+
+                }
+            }
+/*            string tempUrl = "";
             if(Gelbooru.seedUrls.Count > 0)
             {
                 tempUrl = Gelbooru.seedUrls.First();
@@ -52,6 +74,7 @@ namespace Downloaders
                     printToMainRTB("Download Failed: " + tempUrl);
                 }
             }
+*/
         }
 
         private void gelbooruToolStripMenuItem_Click(object sender, EventArgs e)

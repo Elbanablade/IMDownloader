@@ -12,12 +12,16 @@ namespace Downloaders
     class Gelbooru
     {
         //global variables
+        //seedURL, image url, save directory
+        public static List<List<string>> imageData = new List<List<string>>();
         public static List<string> seedUrls = new List<string>();
         public static List<string> pageUrls = new List<string>();
         public static List<string> singlePageUrls = new List<string>();
         public static List<string> imageUrls = new List<string>();
         public static string downloadDirectory = "E:/pictures/Danbooru/test/";
         public static int numberOfPages = 0;
+        public static string saveLocation = "";
+
         public static bool validateUrlSyntax(string url)
         {
             if(!url.ToLower().Contains("gelbooru.com"))
@@ -27,7 +31,7 @@ namespace Downloaders
             return true;
         }
 
-        public static void getIndividualPageUrls(string url)
+        public static List<string> getIndividualPageUrls(string url)
         {
             WebClient client = new WebClient();
             List<string> imagePageURLs = new List<string>();
@@ -42,13 +46,17 @@ namespace Downloaders
                     foreach (var aTag in aTags)
                     {
                         if (aTag.InnerHtml.Contains("img"))
+                        {
+                            imagePageURLs.Add("http://gelbooru.com/" + aTag.Attributes["href"].Value.ToString().Replace("amp;", ""));
                             singlePageUrls.Add("http://gelbooru.com/" + aTag.Attributes["href"].Value.ToString().Replace("amp;", ""));
+                        }
                     }
                 }
             }
+            return imagePageURLs;
         }
 
-        public static void getImageUrlsFromPage(string url)
+        public static List<string> getImageUrlsFromPage(string url)
         {
             WebClient client = new WebClient();
             List<string> imagePageURLs = new List<string>();
@@ -63,10 +71,14 @@ namespace Downloaders
                     foreach (var aTag in aTags)
                     {
                         if (aTag.Attributes["src"].Value.Contains("image") || aTag.Attributes["src"].Value.Contains("thumbnail"))
+                        {
+                            imagePageURLs.Add(convertThumbToImage(aTag.Attributes["src"].Value.ToString().Replace("amp;", "")));
                             imageUrls.Add(convertThumbToImage(aTag.Attributes["src"].Value.ToString().Replace("amp;", "")));
+                        }
                     }
                 }
             }
+            return imagePageURLs;
         }
 
         private static string convertThumbToImage(string url)

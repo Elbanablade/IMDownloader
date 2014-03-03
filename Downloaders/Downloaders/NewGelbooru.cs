@@ -38,6 +38,7 @@ namespace Downloaders
             for (int i = 0; i < temp.Count(); i++)
                 {temp[i] = temp[i].Trim();}
             seedURL += String.Join("+", temp).Replace(" ", "_") + "+";
+            Gelbooru.downloadDirectory = "E:/pictures/Danbooru/" + String.Join("+", temp).Replace(" ", "_");
             
             //add username search
             if(tbUsername.Text != "")
