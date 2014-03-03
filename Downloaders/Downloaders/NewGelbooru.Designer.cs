@@ -40,14 +40,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblSort = new System.Windows.Forms.Label();
             this.cbRating = new System.Windows.Forms.ComboBox();
             this.nudScore = new System.Windows.Forms.NumericUpDown();
             this.nudId = new System.Windows.Forms.NumericUpDown();
             this.nudWidth = new System.Windows.Forms.NumericUpDown();
             this.nudHeight = new System.Windows.Forms.NumericUpDown();
             this.nudNumImages = new System.Windows.Forms.NumericUpDown();
-            this.cbOrder = new System.Windows.Forms.ComboBox();
+            this.cbSort = new System.Windows.Forms.ComboBox();
             this.cbGLEId = new System.Windows.Forms.ComboBox();
             this.cbGLEWidth = new System.Windows.Forms.ComboBox();
             this.cbGLEHeight = new System.Windows.Forms.ComboBox();
@@ -64,7 +64,7 @@
             this.button1.Location = new System.Drawing.Point(12, 280);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 20;
+            this.button1.TabIndex = 140;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -74,7 +74,7 @@
             this.button2.Location = new System.Drawing.Point(93, 280);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 30;
+            this.button2.TabIndex = 150;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -104,7 +104,7 @@
             this.tbSearchTags.Location = new System.Drawing.Point(136, 12);
             this.tbSearchTags.Name = "tbSearchTags";
             this.tbSearchTags.Size = new System.Drawing.Size(192, 20);
-            this.tbSearchTags.TabIndex = 33;
+            this.tbSearchTags.TabIndex = 10;
             // 
             // tbUsername
             // 
@@ -113,7 +113,7 @@
             this.tbUsername.Location = new System.Drawing.Point(136, 64);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(192, 20);
-            this.tbUsername.TabIndex = 34;
+            this.tbUsername.TabIndex = 30;
             // 
             // label3
             // 
@@ -169,14 +169,14 @@
             this.label12.TabIndex = 47;
             this.label12.Text = "number of images";
             // 
-            // label13
+            // lblSort
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 230);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 13);
-            this.label13.TabIndex = 48;
-            this.label13.Text = "order";
+            this.lblSort.AutoSize = true;
+            this.lblSort.Location = new System.Drawing.Point(12, 230);
+            this.lblSort.Name = "lblSort";
+            this.lblSort.Size = new System.Drawing.Size(26, 13);
+            this.lblSort.TabIndex = 48;
+            this.lblSort.Text = "Sort";
             // 
             // cbRating
             // 
@@ -195,7 +195,7 @@
             this.cbRating.Location = new System.Drawing.Point(136, 91);
             this.cbRating.Name = "cbRating";
             this.cbRating.Size = new System.Drawing.Size(192, 21);
-            this.cbRating.TabIndex = 51;
+            this.cbRating.TabIndex = 40;
             // 
             // nudScore
             // 
@@ -207,7 +207,7 @@
             0});
             this.nudScore.Name = "nudScore";
             this.nudScore.Size = new System.Drawing.Size(120, 20);
-            this.nudScore.TabIndex = 52;
+            this.nudScore.TabIndex = 120;
             // 
             // nudId
             // 
@@ -219,7 +219,7 @@
             0});
             this.nudId.Name = "nudId";
             this.nudId.Size = new System.Drawing.Size(120, 20);
-            this.nudId.TabIndex = 53;
+            this.nudId.TabIndex = 60;
             // 
             // nudWidth
             // 
@@ -231,7 +231,7 @@
             0});
             this.nudWidth.Name = "nudWidth";
             this.nudWidth.Size = new System.Drawing.Size(120, 20);
-            this.nudWidth.TabIndex = 54;
+            this.nudWidth.TabIndex = 80;
             // 
             // nudHeight
             // 
@@ -243,40 +243,40 @@
             0});
             this.nudHeight.Name = "nudHeight";
             this.nudHeight.Size = new System.Drawing.Size(120, 20);
-            this.nudHeight.TabIndex = 55;
+            this.nudHeight.TabIndex = 100;
             // 
             // nudNumImages
             // 
             this.nudNumImages.Location = new System.Drawing.Point(136, 38);
             this.nudNumImages.Name = "nudNumImages";
             this.nudNumImages.Size = new System.Drawing.Size(120, 20);
-            this.nudNumImages.TabIndex = 59;
+            this.nudNumImages.TabIndex = 20;
             // 
-            // cbOrder
+            // cbSort
             // 
-            this.cbOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cbSort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbOrder.FormattingEnabled = true;
-            this.cbOrder.Items.AddRange(new object[] {
-            "",
+            this.cbSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSort.FormattingEnabled = true;
+            this.cbSort.Items.AddRange(new object[] {
             "id",
-            "id_desc",
+            "id_asc",
             "score",
             "score_asc",
-            "favcount",
-            "favcount_asc",
-            "mpixels",
-            "mpixels_asc",
-            "portrait",
-            "landscape",
-            "filesize",
-            "filesize_asc",
-            "rank"});
-            this.cbOrder.Location = new System.Drawing.Point(136, 227);
-            this.cbOrder.Name = "cbOrder";
-            this.cbOrder.Size = new System.Drawing.Size(192, 21);
-            this.cbOrder.TabIndex = 60;
+            "rating",
+            "rating_asc",
+            "user",
+            "user_asc",
+            "height",
+            "height_asc",
+            "width",
+            "width_asc",
+            "source",
+            "source_asc"});
+            this.cbSort.Location = new System.Drawing.Point(136, 227);
+            this.cbSort.Name = "cbSort";
+            this.cbSort.Size = new System.Drawing.Size(192, 21);
+            this.cbSort.TabIndex = 130;
             // 
             // cbGLEId
             // 
@@ -290,7 +290,7 @@
             this.cbGLEId.Location = new System.Drawing.Point(136, 119);
             this.cbGLEId.Name = "cbGLEId";
             this.cbGLEId.Size = new System.Drawing.Size(64, 21);
-            this.cbGLEId.TabIndex = 62;
+            this.cbGLEId.TabIndex = 50;
             // 
             // cbGLEWidth
             // 
@@ -304,7 +304,7 @@
             this.cbGLEWidth.Location = new System.Drawing.Point(136, 146);
             this.cbGLEWidth.Name = "cbGLEWidth";
             this.cbGLEWidth.Size = new System.Drawing.Size(64, 21);
-            this.cbGLEWidth.TabIndex = 63;
+            this.cbGLEWidth.TabIndex = 70;
             this.cbGLEWidth.Tag = "";
             // 
             // cbGLEHeight
@@ -319,7 +319,7 @@
             this.cbGLEHeight.Location = new System.Drawing.Point(136, 173);
             this.cbGLEHeight.Name = "cbGLEHeight";
             this.cbGLEHeight.Size = new System.Drawing.Size(64, 21);
-            this.cbGLEHeight.TabIndex = 64;
+            this.cbGLEHeight.TabIndex = 90;
             // 
             // cbGLEScore
             // 
@@ -333,7 +333,7 @@
             this.cbGLEScore.Location = new System.Drawing.Point(136, 200);
             this.cbGLEScore.Name = "cbGLEScore";
             this.cbGLEScore.Size = new System.Drawing.Size(64, 21);
-            this.cbGLEScore.TabIndex = 65;
+            this.cbGLEScore.TabIndex = 110;
             // 
             // NewGelbooru
             // 
@@ -344,14 +344,14 @@
             this.Controls.Add(this.cbGLEHeight);
             this.Controls.Add(this.cbGLEWidth);
             this.Controls.Add(this.cbGLEId);
-            this.Controls.Add(this.cbOrder);
+            this.Controls.Add(this.cbSort);
             this.Controls.Add(this.nudNumImages);
             this.Controls.Add(this.nudHeight);
             this.Controls.Add(this.nudWidth);
             this.Controls.Add(this.nudId);
             this.Controls.Add(this.nudScore);
             this.Controls.Add(this.cbRating);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.lblSort);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -390,14 +390,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblSort;
         private System.Windows.Forms.ComboBox cbRating;
         private System.Windows.Forms.NumericUpDown nudScore;
         private System.Windows.Forms.NumericUpDown nudId;
         private System.Windows.Forms.NumericUpDown nudWidth;
         private System.Windows.Forms.NumericUpDown nudHeight;
         private System.Windows.Forms.NumericUpDown nudNumImages;
-        private System.Windows.Forms.ComboBox cbOrder;
+        private System.Windows.Forms.ComboBox cbSort;
         private System.Windows.Forms.ComboBox cbGLEId;
         private System.Windows.Forms.ComboBox cbGLEWidth;
         private System.Windows.Forms.ComboBox cbGLEHeight;

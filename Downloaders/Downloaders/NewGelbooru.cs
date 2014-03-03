@@ -37,12 +37,12 @@ namespace Downloaders
             string[] temp = tbSearchTags.Text.Split(',');
             for (int i = 0; i < temp.Count(); i++)
                 {temp[i] = temp[i].Trim();}
-            seedURL += String.Join("+", temp).Replace(" ", "_");
+            seedURL += String.Join("+", temp).Replace(" ", "_") + "+";
             
             //add username search
             if(tbUsername.Text != "")
             {
-                seedURL += "%user:" + tbUsername.Text;
+                seedURL += "%user:" + tbUsername.Text + "+";
             }
             
             //add rating filtering
@@ -50,7 +50,7 @@ namespace Downloaders
             {
                 if (cbRating.SelectedItem.ToString() != "")
                 {
-                    seedURL += "%rating:" + cbRating.SelectedItem.ToString();
+                    seedURL += "%rating:" + cbRating.SelectedItem.ToString() + "+";
                 }
             }
             catch { }
@@ -60,7 +60,7 @@ namespace Downloaders
             {
                 if (cbGLEId.SelectedItem.ToString() != "" && nudId.Value > 0)
                 {
-                    seedURL += "%id:" + cbGLEId.SelectedItem.ToString() + nudId.Value.ToString();
+                    seedURL += "%id:" + cbGLEId.SelectedItem.ToString() + nudId.Value.ToString() + "+";
                 }
             }
             catch { }
@@ -70,7 +70,7 @@ namespace Downloaders
             {
                 if (cbGLEWidth.SelectedItem.ToString() != "" && nudWidth.Value > 0)
                 {
-                    seedURL += "%width:" + cbGLEWidth.SelectedItem.ToString() + nudWidth.Value.ToString();
+                    seedURL += "%width:" + cbGLEWidth.SelectedItem.ToString() + nudWidth.Value.ToString() + "+";
                 }
             }
             catch { }
@@ -80,7 +80,7 @@ namespace Downloaders
             {
                 if (cbGLEHeight.SelectedItem.ToString() != "" && nudHeight.Value > 0)
                 {
-                    seedURL += "%height:" + cbGLEHeight.SelectedItem.ToString() + nudHeight.Value.ToString();
+                    seedURL += "%height:" + cbGLEHeight.SelectedItem.ToString() + nudHeight.Value.ToString() + "+";
                 }
             }
             catch { }
@@ -90,20 +90,24 @@ namespace Downloaders
             {
                 if (cbGLEScore.SelectedItem.ToString() != "" && nudScore.Value > 0)
                 {
-                    seedURL += "%score:" + cbGLEScore.SelectedItem.ToString() + nudScore.Value.ToString();
+                    seedURL += "%score:" + cbGLEScore.SelectedItem.ToString() + nudScore.Value.ToString() + "+";
                 }
             }
             catch { }
             
-            
-            
-            
-            
-            
-            Process.Start(seedURL);
+            //sorting
+            try
+            {
+                if (cbSort.SelectedItem.ToString() != "")
+                {
+                    seedURL += "%sort:" + cbSort.SelectedItem.ToString() + "+";
+                }
+            }
+            catch { }
             //test
             //open url in browser
-            MessageBox.Show(seedURL);
+            //Process.Start(seedURL);
+            //MessageBox.Show(seedURL);
             return seedURL;
         }
     }
