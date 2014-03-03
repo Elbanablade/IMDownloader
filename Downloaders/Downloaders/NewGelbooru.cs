@@ -104,6 +104,8 @@ namespace Downloaders
                 }
             }
             catch { }
+
+            Gelbooru.numberOfPages = Convert.ToInt32(nudNumImages.Value);
             //test
             //open url in browser
             //Process.Start(seedURL);

@@ -29,8 +29,13 @@ namespace Downloaders
             if(Gelbooru.seedUrls.Count > 0)
             {
                 tempUrl = Gelbooru.seedUrls.First();
+                int tempImageCount = Gelbooru.numberOfPages;
                 Gelbooru.seedUrls.RemoveAt(0);
                 printToMainRTB("getting urls");
+                for (int i = 0; i < tempImageCount; i++ )
+                {
+                    Gelbooru.getImageUrlsFromPage(tempUrl + "&pid=" + (63*i));
+                }
                 Gelbooru.getImageUrlsFromPage(tempUrl);
                 printToMainRTB("Done");
             }
