@@ -46,11 +46,24 @@ namespace Downloaders
             }
             
             //add rating filtering
-            if(cbRating.SelectedItem.ToString() != "")
+            try
             {
-                seedURL += "%rating:" + cbRating.SelectedItem.ToString();
+                if (cbRating.SelectedItem.ToString() != "")
+                {
+                    seedURL += "%rating:" + cbRating.SelectedItem.ToString();
+                }
             }
-            
+            catch { }
+
+            //id filtering
+            try
+            {
+                if (cbGLEId.SelectedItem.ToString() != "" && nudId.Value > 0)
+                {
+                    seedURL += "%id:" + cbGLEId.SelectedItem.ToString() + nudId.Value.ToString();
+                }
+            }
+            catch { }
             
             Process.Start(seedURL);
             //test
