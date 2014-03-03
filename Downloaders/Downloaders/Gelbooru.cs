@@ -12,31 +12,12 @@ namespace Downloaders
     class Gelbooru
     {
         //global variables
-        public static List<gelbooruImages> images = new List<gelbooruImages>();
         public static List<string> seedUrls = new List<string>();
         public static List<string> pageUrls = new List<string>();
         public static List<string> singlePageUrls = new List<string>();
         public static List<string> imageUrls = new List<string>();
         public static string downloadDirectory = "E:/pictures/Danbooru/test/";
         public static int numberOfPages = 0;
-        [StructLayout(LayoutKind.Explicit)]
-        public struct gelbooruImages
-        {
-            [FieldOffset(0)]
-            public string originURL = "";
-            [FieldOffset(1)]
-            string pageURL = "";
-            [FieldOffset(2)]
-            string imageURL = "";
-            [FieldOffset(3)]
-            string saveDirectory = "";
-            [FieldOffset(4)]
-            string imageDirectory = "";
-            [FieldOffset(5)]
-            int imageNumber = 0;
-            [FieldOffset(6)]
-            int imageOutOf = 0;
-        }
         public static bool validateUrlSyntax(string url)
         {
             if(!url.ToLower().Contains("gelbooru.com"))
