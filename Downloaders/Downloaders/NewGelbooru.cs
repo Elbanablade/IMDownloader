@@ -64,6 +64,24 @@ namespace Downloaders
                 }
             }
             catch { }
+
+            //width filtering
+            try
+            {
+                if (cbGLEWidth.SelectedItem.ToString() != "" && nudWidth.Value > 0)
+                {
+                    seedURL += "%width:" + cbGLEWidth.SelectedItem.ToString() + nudWidth.Value.ToString();
+                }
+            }
+            catch { }
+
+            
+            
+            
+            
+            
+            
+            
             
             Process.Start(seedURL);
             //test
