@@ -20,17 +20,20 @@ namespace Downloaders
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*if(textBox1.Text.Length > 0 && Gelbooru.validateUrlSyntax(textBox1.Text))
-            {
-                Gelbooru.seedUrls.Add(textBox1.Text);
-            }
-             */
+            Gelbooru.seedUrls.Add(buildURL());
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private string buildURL()
+        {
+            string seedURL = "http://www.gelbooru.com/index.php?page=post&tags=";
+            
+            return "";
         }
     }
 }
