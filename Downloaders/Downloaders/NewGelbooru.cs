@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,23 +32,22 @@ namespace Downloaders
 
         private string buildURL()
         {
-            string seedURL = "http://www.gelbooru.com/index.php?page=post&tags=";
+            string seedURL = "http://www.gelbooru.com/index.php?page=post&s=list&tags=";
+            //build tags url
             string[] temp = tbSearchTags.Text.Split(',');
             for (int i = 0; i < temp.Count(); i++)
                 {temp[i] = temp[i].Trim();}
-            seedURL += String.Join("+", temp);
-            if(tbUsername.Text.Length > 0)
-            {
-                seedURL += "%user:" + tbUsername.Text;
-            }
-            if(cbRating.SelectedItem.ToString() != "")
-            {
-                seedURL += "%rating:" + cbRating.SelectedItem.ToString();
-            }
-            if(nudId.Value != 0)
-            {
-                seedURL += "%id:" + cbGLEId.SelectedValue.ToString() + nudId.Value.ToString();
-            }
+            seedURL += String.Join("+", temp).Replace(" ", "_");
+            
+            
+            
+            
+            
+            
+            Process.Start(seedURL);
+            //test
+            //open url in browser
+            MessageBox.Show(seedURL);
             return seedURL;
         }
     }
