@@ -45,7 +45,11 @@ namespace Downloaders
                 seedURL += "%user:" + tbUsername.Text;
             }
             
-            
+            //add rating filtering
+            if(cbRating.SelectedItem.ToString() != "")
+            {
+                seedURL += "%rating:" + cbRating.SelectedItem.ToString();
+            }
             
             
             Process.Start(seedURL);
