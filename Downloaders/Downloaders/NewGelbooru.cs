@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,8 +39,16 @@ namespace Downloaders
             for (int i = 0; i < temp.Count(); i++)
                 {temp[i] = temp[i].Trim();}
             seedURL += String.Join("+", temp).Replace(" ", "_") + "+";
-            Gelbooru.downloadDirectory = "E:/pictures/Danbooru/" + String.Join("+", temp).Replace(" ", "_");
-            
+            Gelbooru.downloadDirectory = "E:/pictures/Danbooru/" + String.Join("+", temp).Replace(" ", "_") + "/";
+
+            DirectoryInfo dir = new DirectoryInfo(Gelbooru.downloadDirectory);
+            if (!dir.Exists)
+            {
+                dir.Create();
+            }
+
+
+
             //add username search
             if(tbUsername.Text != "")
             {

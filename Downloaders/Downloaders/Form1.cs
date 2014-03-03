@@ -34,17 +34,34 @@ namespace Downloaders
 
                 List<string> pageURLs = Gelbooru.getIndividualPageUrls(tempUrl);
                 List<string> imageUrls = new List<string>();
-                foreach(string page in pageURLs)
+                for (int i = 0; i < pageURLs.Count; i++)
                 {
-                    List<string> tempImageurls = Gelbooru.getImageUrlsFromPage(page);
-                    foreach(string s in tempImageurls )
+                    List<string> tempImageurls = Gelbooru.getImageUrlsFromPage(pageURLs[i] + "&pid=" + (63 * i));
+                    foreach (string s in tempImageurls)
                     {
                         imageUrls.Add(s);
                     }
                 }
                 foreach(string s in imageUrls)
                 {
-
+                    List<string> temp = new List<string>();
+                    temp.Add(tempUrl);
+                    temp.Add(s);
+                    temp.Add(tempLocation);
+                    Gelbooru.imageData.Add(temp);
+                }
+            }
+            if(Gelbooru.imageData.Count > 0)
+            {
+                List<string> tempData = Gelbooru.imageData.First();
+                Gelbooru.imageData.RemoveAt(0);
+                if(Gelbooru.downloadImage(tempData[1], tempData[2]))
+                {
+                    printToMainRTB("Downloaded: " + tempData[1]);
+                }
+                else
+                {
+                    printToMainRTB("Download Failed: " + tempData[1]);
                 }
             }
 /*            string tempUrl = "";

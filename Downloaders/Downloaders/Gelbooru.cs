@@ -86,14 +86,14 @@ namespace Downloaders
             return url.Replace("thumbnail_", "").Replace("thumbnail", "image");
         }
 
-        public static bool downloadImage(string imageUrl)
+        public static bool downloadImage(string imageUrl, string downloadLocation)
         {
             try
             {
                 using (WebClient downloadClient = new WebClient())
                 {
                     WebClient webClient = new WebClient();
-                    webClient.DownloadFile(new Uri(imageUrl), downloadDirectory + imageUrl.Split('?')[0].Split('/').Last().ToString());
+                    webClient.DownloadFile(new Uri(imageUrl), downloadLocation + imageUrl.Split('?')[0].Split('/').Last().ToString());
                 }
             }
             catch (Exception e) { return false; }
