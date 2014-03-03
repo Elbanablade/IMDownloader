@@ -31,7 +31,7 @@ namespace Downloaders
                 string tempLocation = Gelbooru.downloadDirectory;
 
                 Gelbooru.seedUrls.RemoveAt(0);
-
+                printToMainRTB("starting information collection");
                 List<string> pageURLs = Gelbooru.getIndividualPageUrls(tempUrl);
                 List<string> imageUrls = new List<string>();
                 for (int i = 0; i < pageURLs.Count; i++)
@@ -39,17 +39,14 @@ namespace Downloaders
                     List<string> tempImageurls = Gelbooru.getImageUrlsFromPage(pageURLs[i] + "&pid=" + (63 * i));
                     foreach (string s in tempImageurls)
                     {
-                        imageUrls.Add(s);
+                        List<string> temp = new List<string>();
+                        temp.Add(tempUrl);
+                        temp.Add(s);
+                        temp.Add(tempLocation);
+                        Gelbooru.imageData.Add(temp);
                     }
                 }
-                foreach(string s in imageUrls)
-                {
-                    List<string> temp = new List<string>();
-                    temp.Add(tempUrl);
-                    temp.Add(s);
-                    temp.Add(tempLocation);
-                    Gelbooru.imageData.Add(temp);
-                }
+                printToMainRTB("information collection complete");
             }
             if(Gelbooru.imageData.Count > 0)
             {

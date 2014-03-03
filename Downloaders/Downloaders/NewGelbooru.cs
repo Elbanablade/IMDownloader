@@ -47,8 +47,6 @@ namespace Downloaders
                 dir.Create();
             }
 
-
-
             //add username search
             if(tbUsername.Text != "")
             {
