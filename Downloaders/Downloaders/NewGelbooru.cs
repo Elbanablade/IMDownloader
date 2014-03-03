@@ -75,8 +75,25 @@ namespace Downloaders
             }
             catch { }
 
-            
-            
+            //height filtering
+            try
+            {
+                if (cbGLEHeight.SelectedItem.ToString() != "" && nudHeight.Value > 0)
+                {
+                    seedURL += "%height:" + cbGLEHeight.SelectedItem.ToString() + nudHeight.Value.ToString();
+                }
+            }
+            catch { }
+
+            //score filtering
+            try
+            {
+                if (cbGLEScore.SelectedItem.ToString() != "" && nudScore.Value > 0)
+                {
+                    seedURL += "%score:" + cbGLEScore.SelectedItem.ToString() + nudScore.Value.ToString();
+                }
+            }
+            catch { }
             
             
             
